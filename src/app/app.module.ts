@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { PowPipe } from './pow.pipe';
+import { CarFilterPipe } from './car-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PowPipe
+    CarFilterPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

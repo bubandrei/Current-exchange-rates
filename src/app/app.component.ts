@@ -4,13 +4,20 @@ import { Component } from "@angular/core";
   selector: 'app-root',
   template: `<div>
                   <h3>Hi!</h3>
-                  <h2>{{num}}</h2>
-                  <!-- <h2>{{num | appPow:3}}</h2>
-                  <h2>{{num | appPow:5}}</h2> -->
-                  <h2>{{15 | appPow:3:'='}}</h2>
-
+                  <input type="text" [(ngModel)]="searchCar">
+                  <hr>
+                    <ul>
+                      <li *ngFor="let car of cars | carFilter:searchCar; let i = index">{{i + 1}} - {{car.name}}</li>
+                    </ul>
               </div>`
 })
 export class AppComponent {
-  num = 2;
+  searchCar: string = '';
+  cars = [
+    { name: 'Ford' },
+    { name: 'Honda' },
+    { name: 'Mazda' },
+    { name: 'Geely' },
+    { name: 'Audi' }
+  ];
 }
