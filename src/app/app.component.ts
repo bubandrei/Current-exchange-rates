@@ -11,13 +11,16 @@ export class AppComponent implements OnInit {
   date: string = "2022-02-28";
   searchCar: string = "";
   cur: Currency[] = [];
+  call:any = [];
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {
     this.httpService
       .getData(this.date)
+      // .subscribe((data: any) => console.log(data[0]["table"]));
       .subscribe((data: any) =>
-     (this.cur = data[0]["rates"]));
+        (this.cur = data[0]["rates"])
+        (this.call = data[0]));
   }
 }

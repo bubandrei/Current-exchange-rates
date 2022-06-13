@@ -7,17 +7,17 @@
 <div>
   <input type="text" [(ngModel)]="searchCar" />
   <input type="text" [(ngModel)]="date" />
-  <ul>
-    <li *ngFor="let current of cur  | carFilter:searchCar">
-      <table>
-        <tbody>
-          <tr>
-            <th>{{ current?.currency }}</th>
-            <th>{{ current?.code }}</th>
-            <th>{{ current?.mid }}</th>
-          </tr>
-        </tbody>
-      </table>
-    </li>
-  </ul>
+  <div>{{call.table}}</div>
+  <div>{{call.no}}</div>
+  <div>{{call.effectiveDate}}</div>
+
+  <table>
+    <tbody>
+      <tr *ngFor="let current of cur  | carFilter:searchCar">
+        <th>{{ current?.currency }}</th>
+        <th>{{ current?.code }}</th>
+        <th>{{ current?.mid }}</th>
+      </tr>
+    </tbody>
+  </table>
 </div>
