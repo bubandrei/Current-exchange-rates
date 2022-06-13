@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+<div>
+  <input type="text" [(ngModel)]="searchCar" />
+  <input type="text" [(ngModel)]="date" />
+  <ul>
+    <li *ngFor="let current of cur  | carFilter:searchCar">
+      <table>
+        <tbody>
+          <tr>
+            <th>{{ current?.currency }}</th>
+            <th>{{ current?.code }}</th>
+            <th>{{ current?.mid }}</th>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+  </ul>
+</div>
