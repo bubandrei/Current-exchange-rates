@@ -8,7 +8,7 @@ import { Currency } from "./currency";
   providers: [HttpService]
 })
 export class AppComponent implements OnInit {
-  date: string = "2022-03-02";
+  date: string = "2022-02-28";
   searchCar: string = "";
   cur: Currency[] = [];
 
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.httpService
       .getData(this.date)
-      .subscribe((data: any) => console.log(data));
-    //  (this.cur = data[0]["rates"]));
+      .subscribe((data: any) =>
+     (this.cur = data[0]["rates"]));
   }
 }
