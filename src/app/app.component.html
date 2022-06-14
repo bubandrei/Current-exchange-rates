@@ -4,7 +4,7 @@
     Welcome!
   </h1>
 </div>
-<div>
+<!-- <div>
   <input type="text" [(ngModel)]="searchCar" />
   <input type="text" [(ngModel)]="date" />
   <div>{{call.table}}</div>
@@ -20,4 +20,21 @@
       </tr>
     </tbody>
   </table>
-</div>
+</div> -->
+<!-- <div>{{this.current|json}}</div> -->
+<p-table [value]="current" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,15,20]">
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="currency">Currency<p-sortIcon field="code"></p-sortIcon></th>
+      <th>Code</th>
+      <th>Mid</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-cur>
+    <tr>
+      <td>{{cur.currency}}</td>
+      <td>{{cur.code}}</td>
+      <td>{{cur.mid}}</td>
+    </tr>
+  </ng-template>
+</p-table>

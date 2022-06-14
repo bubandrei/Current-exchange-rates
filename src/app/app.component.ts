@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpService } from "./http.service";
 import { Currency } from "./currency";
+
+
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -10,8 +12,10 @@ import { Currency } from "./currency";
 export class AppComponent implements OnInit {
   date: string = "2022-02-28";
   searchCar: string = "";
-  cur: Currency[] = [];
-  call:any = [];
+  current: Currency[] = [];
+
+  call: any = [];
+
 
   constructor(private httpService: HttpService) { }
 
@@ -20,7 +24,7 @@ export class AppComponent implements OnInit {
       .getData(this.date)
       // .subscribe((data: any) => console.log(data[0]["table"]));
       .subscribe((data: any) =>
-        (this.cur = data[0]["rates"])
-        (this.call = data[0]));
+          (this.current = data[0]["rates"])
+          (this.call = data[0]));
   }
 }
