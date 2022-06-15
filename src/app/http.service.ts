@@ -17,16 +17,10 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   getData(date: string) {
-    console.log(date)
     if (date) {
-      return this.http.get(
-        " http://api.nbp.pl/api/exchangerates/tables/A/" + date + "/?format=json"
-      );
+      return this.http.get("http://api.nbp.pl/api/exchangerates/tables/A/" + date + "/?format=json")
     } else {
-      return this.http.get(
-        "https://api.nbp.pl/api/exchangerates/tables/A/?format=json"
-      );
+      return this.http.get("https://api.nbp.pl/api/exchangerates/tables/A/?format=json");
     }
-
   }
 }

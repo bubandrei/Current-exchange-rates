@@ -2,7 +2,6 @@ import { Component, OnInit, OnChanges, DoCheck } from "@angular/core";
 import { HttpService } from "./http.service";
 import { Currency } from "./currency";
 
-
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
