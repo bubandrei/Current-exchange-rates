@@ -22,6 +22,8 @@
   </table>
 </div> -->
 <!-- <div>{{this.current|json}}</div> -->
+<input type="date" [(ngModel)] = "dateSelected">
+<button (click)="fetchDate()">PUSH</button>
 <p-table [value]="current" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,15,20]">
   <ng-template pTemplate="header">
     <tr>

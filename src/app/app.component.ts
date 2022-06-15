@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnChanges, DoCheck } from "@angular/core";
 import { HttpService } from "./http.service";
 import { Currency } from "./currency";
 
@@ -10,21 +10,29 @@ import { Currency } from "./currency";
   providers: [HttpService]
 })
 export class AppComponent implements OnInit {
-  date: string = "2022-02-28";
+  [x: string]: any;
   searchCar: string = "";
   current: Currency[] = [];
-
   call: any = [];
-
+  dateSelected: string = '';
 
   constructor(private httpService: HttpService) { }
 
+
   ngOnInit() {
     this.httpService
-      .getData(this.date)
+      .getData(this.dateSelected)
       // .subscribe((data: any) => console.log(data[0]["table"]));
       .subscribe((data: any) =>
-          (this.current = data[0]["rates"])
+        (this.current = data[0]["rates"])
+          (this.call = data[0]));
+  }
+  fetchDate() {
+    this.httpService
+      .getData(this.dateSelected)
+      // .subscribe((data: any) => console.log(data[0]["table"]));
+      .subscribe((data: any) =>
+        (this.current = data[0]["rates"])
           (this.call = data[0]));
   }
 }

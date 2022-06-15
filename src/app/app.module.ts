@@ -5,8 +5,9 @@ import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { CarFilterPipe } from "./filter.pipe";
-import {TableModule} from "primeng/table";
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { TableModule } from "primeng/table";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [AppComponent, CarFilterPipe],
@@ -15,7 +16,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HttpClientModule,
     TableModule,
     BrowserAnimationsModule,
-
+    CalendarModule
   ],
   providers: [AppComponent],
   bootstrap: [AppComponent]
