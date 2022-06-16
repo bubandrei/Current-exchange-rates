@@ -3,6 +3,9 @@
   <h1>
     Welcome!
   </h1>
+  <div>{{call.table}}</div>
+  <div>{{call.no}}</div>
+  <div>{{call.effectiveDate}}</div>
 </div>
 <!-- <div>
   <input type="text" [(ngModel)]="searchCar" />
@@ -22,12 +25,16 @@
   </table>
 </div> -->
 <!-- <div>{{this.current|json}}</div> -->
-<input type="date" [(ngModel)] = "dateSelected">
+
+
+
+<input type="date" [(ngModel)]="dateSelected">
 <button (click)="fetchDate()">PUSH</button>
 <p-table [value]="current" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,15,20]">
   <ng-template pTemplate="header">
     <tr>
-      <th pSortableColumn="currency">Currency<p-sortIcon field="code"></p-sortIcon></th>
+      <th pSortableColumn="currency">Currency<p-sortIcon field="code"></p-sortIcon>
+      </th>
       <th>Code</th>
       <th>Mid</th>
     </tr>
