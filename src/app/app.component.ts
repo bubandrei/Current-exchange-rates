@@ -11,22 +11,20 @@ import { catchError, of } from "rxjs";
   providers: [HttpService]
 })
 export class AppComponent implements OnInit {
-  [x: string]: any;
+
   searchCar: string = "";
   current: Currency[] = [];
   call: any = [];
   dateSelected: string = '';
-  title:string = '';
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-      this.httpService
-        .getData(this.dateSelected)
-        // .subscribe((data: any) => console.log(data[0]["table"]));
-        .subscribe((data: any) =>
-          (this.current = data[0]["rates"])
-            (this.call = data[0]));
+    this.httpService
+      .getData(this.dateSelected)
+      // .subscribe((data: any) => console.log(data[0]["table"]));
+      .subscribe((data: any) =>
+        (this.current = data[0]["rates"], this.call = data[0]));
 
 
   }
@@ -34,10 +32,7 @@ export class AppComponent implements OnInit {
     this.httpService
       .getData(this.dateSelected)
       // .subscribe((data: any) => console.log(data[0]["table"]));
-      .subscribe((data: any) =>
-
-        (this.current = data[0]["rates"])
-          (this.call = data[0]));
+      .subscribe((data: any) => (this.current = data[0]["rates"], this.call = data[0]));
   }
 }
 function data(data: any) {
