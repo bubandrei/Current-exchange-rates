@@ -3,10 +3,9 @@
   <h1>
     Welcome!
   </h1>
-  <div>{{call.table}}</div>
-  <div>{{call.no}}</div>
-  <div>{{call.effectiveDate}}</div>
+<h2>{{title}}</h2>
 </div>
+<!-- <hr> -->
 <!-- <div>
   <input type="text" [(ngModel)]="searchCar" />
   <input type="text" [(ngModel)]="date" />
@@ -30,6 +29,9 @@
 
 <input type="date" [(ngModel)]="dateSelected">
 <button (click)="fetchDate()">PUSH</button>
+<div>{{call.table}}</div>
+<div>{{call.no}}</div>
+<div>{{call.effectiveDate}}</div>
 <p-table [value]="current" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,15,20]">
   <ng-template pTemplate="header">
     <tr>

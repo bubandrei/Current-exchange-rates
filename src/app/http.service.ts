@@ -10,8 +10,8 @@
 //   }
 // }
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { catchError, delay, Observable } from "rxjs";
 import { map } from "rxjs";
 import { Currency } from "./currency";
 
@@ -22,23 +22,25 @@ export class HttpService {
   getData(date: string): Observable<Currency[]> {
     if (date) {
       return this.http.get("http://api.nbp.pl/api/exchangerates/tables/A/" + date + "/?format=json")
-      .pipe(map((data:any)=>{
-        let userCurrency = data;
-        return userCurrency.map(function(user:any):Currency{
-          return new Currency(user.table, user.no, user.effectiveDate, user.rates)
-        })
-      }))
+        .pipe(map((data: any) => {
+          let userCurrency = data;
+          return userCurrency.map(function (user: any): Currency {
+            return new Currency(user.table, user.no, user.effectiveDate, user.rates)
+          })
+        }), delay(3000))
     }
     else {
       return this.http.get("https://api.nbp.pl/api/exchangerates/tables/A/?format=json")
-      .pipe(map((data:any)=>{
-        let userCurrency = data;
-        return userCurrency.map(function(user:any):Currency{
-          return new Currency(user.table, user.no, user.effectiveDate, user.rates)
-        })
-      }))
+        .pipe(map((data: any) => {
+          let userCurrency = data;
+          return userCurrency.map(function (user: any): Currency {
+            return new Currency(user.table, user.no, user.effectiveDate, user.rates)
+          })
+        }), delay(1000))
     }
   }
+};
+
   // getData(date: string) {
   //   if (date) {
   //     return this.http.get("http://api.nbp.pl/api/exchangerates/tables/A/" + date + "/?format=json")
@@ -46,4 +48,4 @@ export class HttpService {
   //     return this.http.get("https://api.nbp.pl/api/exchangerates/tables/A/?format=json");
   //   }
   // }
-}
+

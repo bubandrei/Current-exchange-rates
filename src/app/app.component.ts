@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpService } from "./http.service";
 import { Currency } from "./currency";
+import { catchError, of } from "rxjs";
+
 
 @Component({
   selector: "app-root",
@@ -14,17 +16,18 @@ export class AppComponent implements OnInit {
   current: Currency[] = [];
   call: any = [];
   dateSelected: string = '';
+  title:string = '';
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-    this.httpService
-      .getData(this.dateSelected)
-      // .subscribe((data: any) => console.log(data[0]["table"]));
-      .subscribe((data: any) =>
+      this.httpService
+        .getData(this.dateSelected)
+        // .subscribe((data: any) => console.log(data[0]["table"]));
+        .subscribe((data: any) =>
+          (this.current = data[0]["rates"])
+            (this.call = data[0]));
 
-        (this.current = data[0]["rates"])
-          (this.call = data[0]));
 
   }
   fetchDate() {
