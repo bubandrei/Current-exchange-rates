@@ -28,15 +28,28 @@
 
 <input type="date" [(ngModel)]="dateSelected">
 <button (click)="fetchDate()">PUSH</button>
-<div>{{call.table}}</div>
-<div>{{call.no}}</div>
-<div>{{call.effectiveDate}}</div>
-<p-table [value]="current" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,15,20]">
+<div class="flex">
+
+<p-table #dt2 [value]="current" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,15,20]">
+  <ng-template pTemplate="caption">
+    <div class="header">
+      <div>{{call.table}}</div>
+      <div>{{call.no}}</div>
+      <div>{{call.effectiveDate}}</div>
+    </div>
+    <div class="flex">
+      <span class="p-input-icon-left ml-auto">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value)" placeholder="Search keyword" />
+      </span>
+    </div>
+  </ng-template>
   <ng-template pTemplate="header">
     <tr>
       <th pSortableColumn="currency">Currency<p-sortIcon field="code"></p-sortIcon>
       </th>
-      <th>Code</th>
+      <th pSortableColumn="code">Code<p-sortIcon field="code"></p-sortIcon>
+      </th>
       <th>Mid</th>
     </tr>
   </ng-template>

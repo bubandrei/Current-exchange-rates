@@ -20,11 +20,16 @@ export class AppComponent implements OnInit {
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-    this.httpService
-      .getData(this.dateSelected)
-      // .subscribe((data: any) => console.log(data[0]["table"]));
-      .subscribe((data: any) =>
-        (this.current = data[0]["rates"], this.call = data[0]));
+    try {
+      this.httpService
+        .getData(this.dateSelected)
+        // .subscribe((data: any) => console.log(data[0]["table"]));
+        .subscribe((data: any) =>
+          (this.current = data[0]["rates"], this.call = data[0]));
+    } catch (error) {
+      console.log('tttt')
+    }
+
 
 
   }

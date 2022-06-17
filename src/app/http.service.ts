@@ -24,19 +24,19 @@ export class HttpService {
       return this.http.get("http://api.nbp.pl/api/exchangerates/tables/A/" + date + "/?format=json")
         .pipe(map((data: any) => {
           let userCurrency = data;
-          return userCurrency.map(function (user: any): Currency {
-            return new Currency(user.table, user.no, user.effectiveDate, user.rates)
+          return userCurrency.map(function (item: any): Currency {
+            return new Currency(item.table, item.no, item.effectiveDate, item.rates)
           })
-        }), delay(3000))
+        }),delay(1000));
     }
     else {
       return this.http.get("https://api.nbp.pl/api/exchangerates/tables/A/?format=json")
         .pipe(map((data: any) => {
           let userCurrency = data;
-          return userCurrency.map(function (user: any): Currency {
-            return new Currency(user.table, user.no, user.effectiveDate, user.rates)
+          return userCurrency.map(function (item: any): Currency {
+            return new Currency(item.table, item.no, item.effectiveDate, item.rates)
           })
-        }), delay(1000))
+        }),delay(2000));
     }
   }
 };
