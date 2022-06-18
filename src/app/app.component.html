@@ -30,28 +30,30 @@
 <button (click)="fetchDate()">PUSH</button>
 <div class="flex">
 
-<p-table #dt2 [value]="current" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,15,20]">
+  <div class="header">
+    <div>{{call.table}}</div>
+    <div>{{call.no}}</div>
+    <div>{{call.effectiveDate}}</div>
+  </div>
+<p-table #dt [value]="current" [loading]="loading" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,15,20]">
   <ng-template pTemplate="caption">
-    <div class="header">
-      <div>{{call.table}}</div>
-      <div>{{call.no}}</div>
-      <div>{{call.effectiveDate}}</div>
-    </div>
     <div class="flex">
       <span class="p-input-icon-left ml-auto">
           <i class="pi pi-search"></i>
-          <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value)" placeholder="Search keyword" />
+          <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Search keyword" />
       </span>
     </div>
   </ng-template>
+
   <ng-template pTemplate="header">
     <tr>
-      <th pSortableColumn="currency">Currency<p-sortIcon field="code"></p-sortIcon>
+      <th pSortableColumn="currency">Currency<p-sortIcon field="currency"></p-sortIcon>
       </th>
       <th pSortableColumn="code">Code<p-sortIcon field="code"></p-sortIcon>
       </th>
       <th>Mid</th>
     </tr>
+
   </ng-template>
   <ng-template pTemplate="body" let-cur>
     <tr>
