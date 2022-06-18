@@ -27,7 +27,7 @@ export class HttpService {
           return userCurrency.map(function (item: any): Currency {
             return new Currency(item.table, item.no, item.effectiveDate, item.rates)
           })
-        }),delay(5000));
+        }),delay(2000));
     }
     else {
       return this.http.get("https://api.nbp.pl/api/exchangerates/tables/A/?format=json")
@@ -36,7 +36,7 @@ export class HttpService {
           return userCurrency.map(function (item: any): Currency {
             return new Currency(item.table, item.no, item.effectiveDate, item.rates)
           })
-        }),delay(5000));
+        }),delay(2000));
     }
   }
 };
