@@ -30,7 +30,7 @@ export class HttpService {
         }),delay(2000));
     }
     else {
-      return this.http.get("https://api.nbp.pl/api/exchangerates/tables//?format=json")
+      return this.http.get("https://api.nbp.pl/api/exchangerates/tables/A/?format=json")
         .pipe(map((data: any) => {
           let userCurrency = data;
           return userCurrency.map(function (item: any): Currency {
