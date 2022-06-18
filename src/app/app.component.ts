@@ -31,9 +31,6 @@ export class AppComponent implements OnInit {
     } catch (error) {
       console.log('tttt')
     }
-
-
-
   }
   fetchDate() {
     this.loading =true;
