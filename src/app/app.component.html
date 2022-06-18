@@ -17,9 +17,9 @@
   <p-table #dt [value]="current" [loading]="loading" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10,20]"
   [globalFilterFields]="['currency','code','status']">
     <ng-template pTemplate="caption">
-      <div class="flex">
-        <span class="p-input-icon-left ml-auto">
-          <i class="pi pi-search"></i>
+      <div class="p-d-flex">
+        <span class="p-input-icon-left p-ml-auto">
+          <!-- <i class="pi pi-search"></i> -->
           <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')"
             placeholder="Search keyword" />
         </span>
