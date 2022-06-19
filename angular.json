@@ -33,12 +33,12 @@
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css",
               {
-                "input": "./src/theme-saga-blue.scss",
+                "input": "src/theme-saga-blue.scss",
                 "bundleName": "saga-blue",
                 "inject": false
               },
               {
-                "input": "./src/theme-md-dark-indigo.scss",
+                "input": "src/theme-md-dark-indigo.scss",
                 "bundleName": "md-dark-indigo",
                 "inject": false
               }

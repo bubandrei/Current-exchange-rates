@@ -20,10 +20,8 @@ export class AppComponent implements OnInit {
   error: string = '';
   isDarkTheme = false;
 
-  toggleTheme(){
-    this.isDarkTheme = !this.isDarkTheme;
-  }
   changeTheme(theme: string) {
+    this.isDarkTheme = !this.isDarkTheme;
     this.themeService.switchTheme(theme);
 }
   constructor(private httpService: HttpService, private themeService: ThemeService) {}
