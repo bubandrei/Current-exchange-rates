@@ -1,5 +1,5 @@
 <div [ngClass]="isDarkTheme? 'dark-theme' : 'light-theme'">
-  <mat-card>
+  <mat-card >
     <p-table  #dt [value]="current" dataKey="id" [rows]="10" [showCurrentPageReport]="true" [loading]="loading"
       [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
       styleClass="p-datatable-customers p-datatable-gridlines" [rowsPerPageOptions]="[10,20]"
