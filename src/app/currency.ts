@@ -1,10 +1,3 @@
-// export class Currency {
-//   constructor(
-//     public currency: string,
-//     public code: string,
-//     public mid: number
-//   ) {}
-// }
 export class Currency {
   constructor(
     public table: any,
@@ -12,9 +5,9 @@ export class Currency {
     public effectiveDate: any,
     public rates: [
       {
-        currency: any;
-        code: any;
-        mid: any;
+        currency: any,
+        code: any,
+        mid: any,
       }
     ]
   ) {}

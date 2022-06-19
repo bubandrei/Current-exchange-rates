@@ -1,21 +1,20 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpService } from "./http.service";
 import { Currency } from "./currency";
-import { catchError, of, Subscription, throwError } from "rxjs";
+import { catchError, of, throwError } from "rxjs";
 import { MessageService } from "primeng/api";
+import { MatDatepicker } from "@angular/material/datepicker";
 
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
-  providers: [HttpService, MessageService]
+  providers: [HttpService, MessageService, MatDatepicker, ]
 })
 export class AppComponent implements OnInit {
 
-  searchCar: string = "";
   current: Currency[] = [];
-  call: any = [];
   dateSelected: string = '';
   loading: boolean = true;
   error: string = '';
@@ -30,12 +29,12 @@ export class AppComponent implements OnInit {
           return throwError(() => new Error(err.message));
         }),
         catchError((err) => {
-          return of(this.error = 'Http call failed');
+          return of(this.error = 'Page not found');
         }),
       )
         .subscribe({
           next: (data: any) => {
-            (this.current = data[0]["rates"], this.call = data[0], this.loading = false)
+            (this.current = data[0]["rates"], this.loading = false);
           }
         });
     } catch (err) {
@@ -55,12 +54,12 @@ export class AppComponent implements OnInit {
           return throwError(() => new Error(err.message));
         }),
         catchError((err) => {
-          return of(this.error = 'Http call failed');
+          return of(this.error = 'Page not found');
         }),
       )
         .subscribe({
           next: (data: any) => {
-            (this.current = data[0]["rates"], this.call = data[0], this.loading = false)
+            (this.current = data[0]["rates"], this.loading = false);
           }
         });
     } catch (err) {
